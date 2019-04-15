@@ -1,3 +1,10 @@
+/data/pp2_20161010
+/yeg_data/train_safe_parsed.csv
+/.vscode
 *.caffemodel
-.DS_Store
-.pyc
+*.DS_Store
+*.pyc
+*.jpg
+*.JPG
+googleapikey.txt
+googleapisecret.txt
