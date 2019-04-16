@@ -12,14 +12,15 @@ def convert_votes_to_train_data():
 
     filename =  r'H:\workspace\dlcity\yeg_data\train_safe_partial.csv'
     df = pandas.read_csv(filename)
-
+    df[['left']] = r'/home/liyao_jiang/dlcity/yeg_data/images/' + df[['left']]
+    df[['right']] = r'/home/liyao_jiang/dlcity/yeg_data/images/' + df[['right']]
     new_df = df.copy()[['left', 'winner']]
     new_df['winner'] = new_df.apply(lambda row: 1 if row['winner']==1 else 0, axis=1)
     train, test = train_test_split(new_df, test_size=0.2, shuffle=False)
     train.to_csv(r'H:\workspace\dlcity\yeg_data\train\train_safe_partial_left.txt', 
-                        header=False, index=False, sep=',')
+                        header=False, index=False, sep=' ')
     test.to_csv(r'H:\workspace\dlcity\yeg_data\train\val_safe_partial_left.txt', 
-                        header=False, index=False, sep=',')
+                        header=False, index=False, sep=' ')
 
     
 
@@ -27,9 +28,9 @@ def convert_votes_to_train_data():
     new_df['winner'] = new_df.apply(lambda row: 1 if row['winner']==-1 else 0, axis=1)
     train, test = train_test_split(new_df, test_size=0.2, shuffle=False)
     train.to_csv(r'H:\workspace\dlcity\yeg_data\train\train_safe_partial_right.txt', 
-                        header=False, index=False, sep=',')
+                        header=False, index=False, sep=' ')
     test.to_csv(r'H:\workspace\dlcity\yeg_data\train\val_safe_partial_right.txt', 
-                        header=False, index=False, sep=',')
+                        header=False, index=False, sep=' ')
 
 
 def get_unique_images_list():
