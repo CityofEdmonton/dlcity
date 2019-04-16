@@ -1,4 +1,3 @@
-/home/liyao_jiang/dlcity/yeg_data/images/29.763818_-95.394621_513cc3acfdc9f035870016c3_Houston.JPG 0
 /home/liyao_jiang/dlcity/yeg_data/images/39.780163_-104.955843_513d6debfdc9f0358700521f_Denver.JPG 0
 /home/liyao_jiang/dlcity/yeg_data/images/35.675770_139.887075_513e6b98fdc9f0358700c055_Tokyo.JPG 0
 /home/liyao_jiang/dlcity/yeg_data/images/33.837652_-84.404336_513d7bbefdc9f03587006c7c_Atlanta.JPG 1
