@@ -1,4 +1,4 @@
-net: "models/prototxt/train_val_trial.prototxt" # path to the network definition
+net: "models/trial_model_1/prototxt/train_val_trial.prototxt" # path to the network definition
 test_iter: 200 # how many mini-batches to test in each validation phase
 test_interval: 500 # how often do we call the test phase
 base_lr: 1e-5 # base learning rate
@@ -10,5 +10,5 @@ max_iter: 450000
 momentum: 0.9 
 weight_decay: 0.0005 # regularization!
 snapshot: 2000 # taking snapshot is like saving your progress in a game
-snapshot_prefix: "models/model_train_trial"
+snapshot_prefix: "models/trial_model_1/weights"
 solver_mode: CPU
