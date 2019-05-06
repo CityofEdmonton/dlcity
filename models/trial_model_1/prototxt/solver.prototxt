@@ -11,4 +11,4 @@ momentum: 0.9
 weight_decay: 0.0005 # regularization!
 snapshot: 2000 # taking snapshot is like saving your progress in a game
 snapshot_prefix: "models/trial_model_1/weights"
-solver_mode: CPU
+solver_mode: GPU
