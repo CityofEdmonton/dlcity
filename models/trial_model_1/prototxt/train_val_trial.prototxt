@@ -6,14 +6,14 @@ layer {
   top: "data1"
   top: "label1"
   image_data_param {
-    source: "/home/liyao_jiang/dlcity/yeg_data/train/train_safe_partial_left.txt"
+    source: "/home/aimladmin/liyao_workspace/dlcity/yeg_data/train/train_safe_partial_left.txt"
     batch_size: 20
     new_height: 256
     new_width: 256
   }
   transform_param {
     crop_size: 224
-    mean_file: "/home/liyao_jiang/dlcity/data/ilsvrc12/imagenet_mean.binaryproto"
+    mean_file: "/home/aimladmin/liyao_workspace/dlcity/data/ilsvrc12/imagenet_mean.binaryproto"
     mirror: true
   }
   include: { phase: TRAIN }
@@ -24,14 +24,14 @@ layer {
   top: "data1"
   top: "label1"
   image_data_param {
-    source: "/home/liyao_jiang/dlcity/yeg_data/train/val_safe_partial_left.txt"
+    source: "/home/aimladmin/liyao_workspace/dlcity/yeg_data/train/val_safe_partial_left.txt"
     batch_size: 10
     new_height: 256
     new_width: 256
   }
   transform_param {
     crop_size: 224
-    mean_file: "/home/liyao_jiang/dlcity/data/ilsvrc12/imagenet_mean.binaryproto"
+    mean_file: "/home/aimladmin/liyao_workspace/dlcity/data/ilsvrc12/imagenet_mean.binaryproto"
     mirror: false
   }
   include: { phase: TEST }
@@ -43,14 +43,14 @@ layer {
   top: "data2"
   top: "label2"
   image_data_param {
-    source: "/home/liyao_jiang/dlcity/yeg_data/train/train_safe_partial_right.txt"
+    source: "/home/aimladmin/liyao_workspace/dlcity/yeg_data/train/train_safe_partial_right.txt"
     batch_size: 20
     new_height: 256
     new_width: 256
   }
   transform_param {
     crop_size: 224
-    mean_file: "/home/liyao_jiang/dlcity/data/ilsvrc12/imagenet_mean.binaryproto"
+    mean_file: "/home/aimladmin/liyao_workspace/dlcity/data/ilsvrc12/imagenet_mean.binaryproto"
     mirror: true
   }
   include: { phase: TRAIN }
@@ -61,14 +61,14 @@ layer {
   top: "data2"
   top: "label2"
   image_data_param {
-    source: "/home/liyao_jiang/dlcity/yeg_data/train/val_safe_partial_right.txt"
+    source: "/home/aimladmin/liyao_workspace/dlcity/yeg_data/train/val_safe_partial_right.txt"
     batch_size: 10
     new_height: 256
     new_width: 256
   }
   transform_param {
     crop_size: 224
-    mean_file: "/home/liyao_jiang/dlcity/data/ilsvrc12/imagenet_mean.binaryproto"
+    mean_file: "/home/aimladmin/liyao_workspace/dlcity/data/ilsvrc12/imagenet_mean.binaryproto"
     mirror: false
   }
   include: { phase: TEST }
