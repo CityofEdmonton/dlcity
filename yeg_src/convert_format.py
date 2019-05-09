@@ -1,5 +1,6 @@
 import pandas
 import numpy
+import os
 from sklearn.model_selection import train_test_split
 
 def convert_votes_to_train_data():
@@ -26,6 +27,22 @@ def parse_train_data():
     new_df['r_city'] = df.apply(lambda row: row['right'].strip(".JPG").split('_')[3], axis=1)
     new_df['r_url'] = 'url'
     new_df.to_csv(r'H:\workspace\dlcity\yeg_data\train_safe_parsed_emptyurl.csv', index=False, sep=',')
+
+def is_valid(row, invalid_list):
+    left = str(row['left'])
+    right = str(row['right'])  
+    if (left in invalid_list) or (right in invalid_list):
+        return False
+    else:
+        return True
+
+def cleanup_invalid_images():
+    filename =  r'H:\workspace\dlcity\yeg_data\train_safe_parsed_emptyurl.csv'
+    df = pandas.read_csv(filename)
+    invalid_list = os.listdir(r'H:\workspace\dlcity\yeg_data\images_invalid')
+    df['is_valid'] = df.apply(lambda row : is_valid(row, invalid_list), axis=1)
+    df = df[df.is_valid == True].drop(labels='is_valid', axis=1)
+    df.to_csv(r'H:\workspace\dlcity\yeg_data\train_safe_parsed_emptyurl.csv', index=False, sep=',')
 
 def split_left_right_train_val():
     filename =  r'H:\workspace\dlcity\yeg_data\train_safe_parsed_emptyurl.csv'
