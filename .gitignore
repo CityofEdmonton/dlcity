@@ -1,6 +1,8 @@
+__pycache__/
+*.py[cod]
+*$py.class
 /data/pp2_20161010
-/yeg_data/train_safe_parsed.csv
-/yeg_data/train
+/yeg_data/
 /.vscode
 *.caffemodel
 *.DS_Store
