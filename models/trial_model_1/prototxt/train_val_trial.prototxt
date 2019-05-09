@@ -6,7 +6,7 @@ layer {
   top: "data1"
   top: "label1"
   image_data_param {
-    source: "/home/aimladmin/liyao_workspace/dlcity/yeg_data/train/train_safe_partial_left.txt"
+    source: "/home/aimladmin/liyao_workspace/dlcity/yeg_data/train/train_safe_left.txt"
     batch_size: 20
     new_height: 256
     new_width: 256
@@ -24,7 +24,7 @@ layer {
   top: "data1"
   top: "label1"
   image_data_param {
-    source: "/home/aimladmin/liyao_workspace/dlcity/yeg_data/train/val_safe_partial_left.txt"
+    source: "/home/aimladmin/liyao_workspace/dlcity/yeg_data/train/val_safe_left.txt"
     batch_size: 10
     new_height: 256
     new_width: 256
@@ -43,7 +43,7 @@ layer {
   top: "data2"
   top: "label2"
   image_data_param {
-    source: "/home/aimladmin/liyao_workspace/dlcity/yeg_data/train/train_safe_partial_right.txt"
+    source: "/home/aimladmin/liyao_workspace/dlcity/yeg_data/train/train_safe_right.txt"
     batch_size: 20
     new_height: 256
     new_width: 256
@@ -61,7 +61,7 @@ layer {
   top: "data2"
   top: "label2"
   image_data_param {
-    source: "/home/aimladmin/liyao_workspace/dlcity/yeg_data/train/val_safe_partial_right.txt"
+    source: "/home/aimladmin/liyao_workspace/dlcity/yeg_data/train/val_safe_right.txt"
     batch_size: 10
     new_height: 256
     new_width: 256
