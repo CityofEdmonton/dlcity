@@ -13,21 +13,19 @@ import urllib.request
 import os, sys
 import cv2
 
-ref_img = cv2.imread(r"H:\workspace\dlcity\yeg_data\no_imagery.jpg")
 
 def fetchImage(key, secret, filename, image_dir, day_limit, signature):
-    global ref_img
     df = pandas.read_csv(filename)
     limit = int(day_limit)
     for index, row in df.iterrows():
-        if index > 100:
-            break
+        # if index > 100:
+        #     break
         # download left
         if limit <= 0:
             break
-        filename = image_dir + '\\' + str(row['left'])
+        filename = image_dir + '\\' + str(row['filename'])
         if not os.path.isfile(filename):            
-            url = str(row['l_url'])
+            url = str(row['url'])
             if signature:
                 signed_url = sign_url(input_url=url, secret=secret)
             else:
@@ -36,40 +34,10 @@ def fetchImage(key, secret, filename, image_dir, day_limit, signature):
                 # print(signed_url)
                 urllib.request.urlretrieve(signed_url, filename)
                 # remove invalid image
-                img = cv2.imread(filename)
-                res_err = numpy.linalg.norm((img-ref_img).flatten(),ord=2)
-                if res_err <= 0.1:
-                    os.remove(filename)
-                    print('invalid image removed:', filename)
-                print("limit remaining:", limit, filename)
-                limit -= 1
-            except Exception as e:
-                print(e)
-                print("fetching: ",index+1," failed!")
-                if "403" in str(e) :
-                    print("exceed limit, exiting!")
-                    break
-                else:
-                    print("skipped!")
-        # download right
-        if limit <= 0:
-            break        
-        filename = image_dir + '\\' + str(row['right'])
-        if not os.path.isfile(filename):            
-            url = str(row['r_url'])
-            if signature:
-                signed_url = sign_url(input_url=url, secret=secret)
-            else:
-                signed_url = url
-            try:
-                # print(signed_url)
-                urllib.request.urlretrieve(signed_url, filename)
-                # remove invalid image
-                img = cv2.imread(filename)
-                res_err = numpy.linalg.norm((img-ref_img).flatten(),ord=2)
-                if res_err <= 0.1:
-                    os.remove(filename)
-                    print('invalid image removed:', filename)
+                # byte_size = os.path.getsize(filename)
+                # if byte_size < 5500:
+                #     os.remove(filename)
+                #     print('invalid image removed:', filename)
                 print("limit remaining:", limit, filename)
                 limit -= 1
             except Exception as e:
@@ -93,6 +61,6 @@ if __name__ == "__main__":
 
     # the downloading part
     image_dir = r"H:\workspace\dlcity\yeg_data\images"
-    filename = r"H:\workspace\dlcity\yeg_data\train_safe_parsed.csv"
-    fetchImage(key, secret, filename, image_dir, day_limit=1000, signature=True)
-    fetchImage(key, secret, filename, image_dir, day_limit=1000, signature=False)
+    filename = r"H:\workspace\dlcity\yeg_data\image_list.csv"
+    fetchImage(key, secret, filename, image_dir, day_limit=104858, signature=True)
+    # fetchImage(key, secret, filename, image_dir, day_limit=1000, signature=False)
