@@ -6,7 +6,7 @@ import glob
 if __name__=="__main__":
 
     if len(sys.argv) < 3:
-        print "Usage python data_preprocess_calculate_mean.py <input-folder> <output-mean-file> <optional-resize-value>"
+        print ("Usage python data_preprocess_calculate_mean.py <input-folder> <output-mean-file> <optional-resize-value>")
     else:
         # calculating the mean and writing it to a file
         dir_src = sys.argv[1]
