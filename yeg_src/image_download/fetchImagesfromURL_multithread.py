@@ -15,11 +15,12 @@ import cv2
 from multiprocessing.dummy import Pool as ThreadPool
 
 def geturl(url, filename):
-    try:
-        # urllib.request.urlretrieve(url, filename)
-        print(url,filename)
-    except:
-        pass
+    if not os.path.exists(filename):
+        try:
+            urllib.request.urlretrieve(url, filename)
+            # print(url,filename)
+        except:
+            pass
 
 def fetchImage(key, secret, filename, image_dir, signature):
     df = pandas.read_csv(filename)
