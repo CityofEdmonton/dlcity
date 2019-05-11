@@ -29,8 +29,10 @@ weight_decay: 0.0005   # regularization!
 
 snapshot: 2000         # taking snapshot is like saving your progress in a game
 
-snapshot_prefix: "/home/aimladmin/liyao_workspace/dlcity/models/trial_model_1/weights"
+snapshot_prefix: "/home/aimladmin/liyao_workspace/dlcity/models/trial_model_1/weights/"
 
 solver_mode: GPU
 
 type : "SGD"
+
+test_initialization : false
