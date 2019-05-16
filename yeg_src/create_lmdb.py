@@ -35,9 +35,9 @@ def make_datum(img, label):
         label=label,
         data=np.rollaxis(img, 2).tostring())
 
-train_lmdb = r'/home/aimladmin/liyao_workspace/dlcity/yeg_data/lmdb'
+train_lmdb = r'/mnt/liyao/lmdb'
 
-train_data = [img for img in glob.glob(r"/home/aimladmin/liyao_workspace/dlcity/yeg_data/images/*.jpg")]
+train_data = [img for img in glob.glob(r"/home/aimladmin/liyao_workspace/dlcity/yeg_data/images/*.JPG")]
 
 print ('Creating train_lmdb')
 
@@ -48,7 +48,7 @@ with in_db.begin(write=True) as in_txn:
         img = transform_img(img, img_width=IMAGE_WIDTH, img_height=IMAGE_HEIGHT)
         label = 0
         datum = make_datum(img, label)
-        in_txn.put('{:0>5d}'.format(in_idx), datum.SerializeToString())
+        in_txn.put('{:0>5d}'.format(in_idx).encode(), datum.SerializeToString())
         print ('{:0>5d}'.format(in_idx) + ':' + img_path)
 in_db.close()
 
