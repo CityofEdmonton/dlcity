@@ -1,15 +1,15 @@
-# train_size = 293072, train_bath_size = 20
-# val_size = 73268, val_batch size = 10
+# train_size = 237991, train_bath_size = 20
+# val_size = 18308, val_batch size = 10
 
 net: "/home/aimladmin/liyao_workspace/dlcity/models/trial_model_1/prototxt/train_val_trial.prototxt" # path to the network definition
 
-test_iter: 7327        # how many mini-batches to test in each validation phase 
-                       # ( = val_size/val_batch_size = 73268/10 = 7327)
+test_iter: 1831        # how many mini-batches to test in each validation phase 
+                       # ( = val_size/val_batch_size = 18308/10 = 1831)
 
-test_interval: 14654   # how often do we call the test phase
-                       # ( = train_size/train_batch_size = 293072/20 = 14654)
+test_interval: 11900   # how often do we call the test phase
+                       # ( = train_size/train_batch_size = 237991/20 = 11900)
 
-base_lr: 1e-3          # begin training at a learning rate of 1e-3
+base_lr: 1e-7          # begin training at a learning rate of 1e-3
 
 lr_policy: "step"      # learning rate policy: drop the learning rate in "steps"
                        # by a factor of gamma every stepsize iterations
@@ -17,7 +17,7 @@ lr_policy: "step"      # learning rate policy: drop the learning rate in "steps"
 gamma: 0.1             # drop the learning rate by a factor of 10
                        # (i.e., multiply it by a factor of gamma = 0.1)
 
-stepsize: 14654       # drop the learning rate every epoch (test_interval iterations)
+stepsize: 11900       # drop the learning rate every epoch (test_interval iterations)
 
 max_iter: 150000       # train for 150K iterations total
 
@@ -27,7 +27,7 @@ display: 20            # how often do we print training loss
 
 weight_decay: 0.0005   # regularization!
 
-snapshot: 2000         # taking snapshot is like saving your progress in a game
+snapshot: 11900         # taking snapshot is like saving your progress in a game
 
 snapshot_prefix: "/home/aimladmin/liyao_workspace/dlcity/models/trial_model_1/weights/"
 
@@ -36,3 +36,5 @@ solver_mode: GPU
 type : "SGD"
 
 test_initialization : false
+
+# clip_gradients : 40
