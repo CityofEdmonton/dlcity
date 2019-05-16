@@ -4,6 +4,8 @@ __pycache__/
 /data/pp2_20161010
 /yeg_data/
 /.vscode
+*.solverstate
+*.log
 *.caffemodel
 *.DS_Store
 *.pyc

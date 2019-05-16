@@ -44,25 +44,31 @@ def cleanup_invalid_images():
     df = df[df.is_valid == True].drop(labels='is_valid', axis=1)
     df.to_csv(r'H:\workspace\dlcity\yeg_data\train_safe_parsed_emptyurl.csv', index=False, sep=',')
 
-def split_left_right_train_val():
+def split_left_right_train_val(train_ratio = 0.65, val_ratio = 0.05, test_ratio = 0.30): 
     filename =  r'H:\workspace\dlcity\yeg_data\train_safe_parsed_emptyurl.csv'
     df = pandas.read_csv(filename)
     df[['left']] = r'/home/aimladmin/liyao_workspace/dlcity/yeg_data/images/' + df[['left']]
     df[['right']] = r'/home/aimladmin/liyao_workspace/dlcity/yeg_data/images/' + df[['right']]
     new_df = df.copy()[['left', 'winner']]
     new_df['winner'] = new_df.apply(lambda row: 1 if row['winner']==1 else 0, axis=1)
-    train, test = train_test_split(new_df, test_size=0.2, shuffle=False)
+    train_and_test, val = train_test_split(new_df, test_size=val_ratio, shuffle=False)
+    train, test = train_test_split(train_and_test, test_size=(test_ratio/(train_ratio+test_ratio)), shuffle=False)
     train.to_csv(r'H:\workspace\dlcity\yeg_data\train\train_safe_left.txt', 
                         header=False, index=False, sep=' ')
-    test.to_csv(r'H:\workspace\dlcity\yeg_data\train\val_safe_left.txt', 
+    val.to_csv(r'H:\workspace\dlcity\yeg_data\train\val_safe_left.txt', 
+                        header=False, index=False, sep=' ')
+    test.to_csv(r'H:\workspace\dlcity\yeg_data\train\test_safe_left.txt', 
                         header=False, index=False, sep=' ')
 
     new_df = df.copy()[['right', 'winner']]
     new_df['winner'] = new_df.apply(lambda row: 1 if row['winner']==-1 else 0, axis=1)
-    train, test = train_test_split(new_df, test_size=0.2, shuffle=False)
+    train_and_test, val = train_test_split(new_df, test_size=val_ratio, shuffle=False)
+    train, test = train_test_split(train_and_test, test_size=(test_ratio/(train_ratio+test_ratio)), shuffle=False)
     train.to_csv(r'H:\workspace\dlcity\yeg_data\train\train_safe_right.txt', 
                         header=False, index=False, sep=' ')
-    test.to_csv(r'H:\workspace\dlcity\yeg_data\train\val_safe_right.txt', 
+    val.to_csv(r'H:\workspace\dlcity\yeg_data\train\val_safe_right.txt', 
+                        header=False, index=False, sep=' ')
+    test.to_csv(r'H:\workspace\dlcity\yeg_data\train\test_safe_right.txt', 
                         header=False, index=False, sep=' ')
 
 # def get_unique_images_list():
