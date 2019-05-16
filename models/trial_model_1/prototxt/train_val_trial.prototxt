@@ -13,7 +13,7 @@ layer {
   }
   transform_param {
     crop_size: 224
-    mean_file: "/home/aimladmin/liyao_workspace/dlcity/yeg_data/mean.binaryproto"
+    mean_file: "/home/aimladmin/liyao_workspace/dlcity/data/meanfile/mean.binaryproto"
     mirror: true
   }
   include: { phase: TRAIN }
@@ -31,7 +31,7 @@ layer {
   }
   transform_param {
     crop_size: 224
-    mean_file: "/home/aimladmin/liyao_workspace/dlcity/yeg_data/mean.binaryproto"
+    mean_file: "/home/aimladmin/liyao_workspace/dlcity/data/meanfile/mean.binaryproto"
     mirror: false
   }
   include: { phase: TEST }
@@ -50,7 +50,7 @@ layer {
   }
   transform_param {
     crop_size: 224
-    mean_file: "/home/aimladmin/liyao_workspace/dlcity/yeg_data/mean.binaryproto"
+    mean_file: "/home/aimladmin/liyao_workspace/dlcity/data/meanfile/mean.binaryproto"
     mirror: true
   }
   include: { phase: TRAIN }
@@ -68,7 +68,7 @@ layer {
   }
   transform_param {
     crop_size: 224
-    mean_file: "/home/aimladmin/liyao_workspace/dlcity/yeg_data/mean.binaryproto"
+    mean_file: "/home/aimladmin/liyao_workspace/dlcity/data/meanfile/mean.binaryproto"
     mirror: false
   }
   include: { phase: TEST }
