@@ -99,3 +99,13 @@ def filter_by_cities(cities):
     new_df = new_df[new_df['l_city'].isin(cities)]
     new_df = new_df[new_df['r_city'].isin(cities)]
     new_df.to_csv(r'yeg_data\train_safe_parsed_emptyurl_partial.csv', index=False, sep=',')
+
+
+def main():
+    convert_votes_to_train_data()
+    parse_train_data()
+    split_left_right_train_val()
+    get_unique_images_list_with_url()
+
+if __name__ == "__main__":
+    main()
