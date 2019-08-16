@@ -60,7 +60,7 @@ if __name__ == "__main__":
     file.close()
 
     # the downloading part
-    image_dir = r"H:\workspace\dlcity\yeg_data\images"
-    filename = r"H:\workspace\dlcity\yeg_data\image_list.csv"
+    image_dir = r"yeg_data\images"
+    filename = r"yeg_data\image_list.csv"
     fetchImage(key, secret, filename, image_dir, day_limit=104858, signature=True)
     # fetchImage(key, secret, filename, image_dir, day_limit=1000, signature=False)

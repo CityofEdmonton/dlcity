@@ -45,6 +45,6 @@ if __name__ == "__main__":
     file.close()
 
     # the downloading part
-    image_dir = r"H:\workspace\dlcity\yeg_data\images"
-    filename = r"H:\workspace\dlcity\yeg_data\images_list.csv"
+    image_dir = r"yeg_data\images"
+    filename = r"yeg_data\images_list.csv"
     fetchImage(key, secret, filename, image_dir, signature=True)

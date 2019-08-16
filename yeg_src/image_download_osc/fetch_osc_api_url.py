@@ -5,7 +5,7 @@ import numpy
 
 if __name__ == "__main__":
     radius = 200 # radius = 200m
-    df = pandas.read_csv(r"H:\workspace\dlcity\yeg_data\images_list_osc.csv")
+    df = pandas.read_csv(r"yeg_data\images_list_osc.csv")
     
     total = df.shape[0]
     count = 0
@@ -29,7 +29,7 @@ if __name__ == "__main__":
         if count % display_interval == 0:
             print("fetched url: " + str(index+1) + " out of: " + str(total))        
         if count % saving_interval == 0:
-            df.to_csv(r"H:\workspace\dlcity\yeg_data\images_list_osc.csv", sep=',', index=False)
+            df.to_csv(r"yeg_data\images_list_osc.csv", sep=',', index=False)
             print("saved!")
-    df.to_csv(r"H:\workspace\dlcity\yeg_data\images_list_osc.csv", sep=',', index=False)
+    df.to_csv(r"yeg_data\images_list_osc.csv", sep=',', index=False)
     print("done")

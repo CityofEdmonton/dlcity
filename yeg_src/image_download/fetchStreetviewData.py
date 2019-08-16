@@ -20,7 +20,7 @@ if __name__ == "__main__":
     file = open('googleapikey.txt', 'r')
     key = file.read() # need the dev key to download from google API
 
-    df = pandas.read_csv(r"H:\workspace\dlcity\yeg_data\images_list.csv")
+    df = pandas.read_csv(r"yeg_data\images_list.csv")
     
     total = df.shape[0]
     count = 0
@@ -34,9 +34,9 @@ if __name__ == "__main__":
             df.loc[index, "url"] = getImageUrl(size, lat, lon, heading, pitch, key)
         print("fetched url: " + str(index+1) + " out of: " + str(total))
         if count % saving_interval == 0:
-            df.to_csv(r"H:\workspace\dlcity\yeg_data\images_list.csv", sep=',', index=False)
+            df.to_csv(r"yeg_data\images_list.csv", sep=',', index=False)
             print("saved!")
-    df.to_csv(r"H:\workspace\dlcity\yeg_data\images_list.csv", sep=',', index=False)
+    df.to_csv(r"yeg_data\images_list.csv", sep=',', index=False)
     print("done")
 
     # df["l_url"] = df.apply(lambda row: fetch_url(row['l_lat'], row['l_lon'], row['l_url']), axis=1)

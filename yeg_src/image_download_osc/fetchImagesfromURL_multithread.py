@@ -32,6 +32,6 @@ def fetchImage(filename, image_dir):
 
 
 if __name__ == "__main__":
-    image_dir = r"H:\workspace\dlcity\yeg_data\images_osc"
-    filename = r"H:\workspace\dlcity\yeg_data\images_list_osc.csv"
+    image_dir = r"yeg_data\images_osc"
+    filename = r"yeg_data\images_list_osc.csv"
     fetchImage(filename, image_dir)
