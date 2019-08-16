@@ -39,7 +39,7 @@ Download caffemodel [url](http://www.robots.ox.ac.uk/~vgg/software/very_deep/caf
 
         4.  Use `yeg_src/image_downlaod_osc/fetchImagesfromURL_multithread.py` to download from the url got from Google Streetview
 
-        5.  Use 'yeg_src/cleanup_invalid_images.py' to clean up
+        5.  Use `yeg_src/cleanup_invalid_images.py` to clean up
 
     -   Option 2:  
 
@@ -49,7 +49,7 @@ Download caffemodel [url](http://www.robots.ox.ac.uk/~vgg/software/very_deep/caf
 
         3.  Use `python yeg_src/image_download/fetchImagesfromURL_multithread.py` to download from the url got from OpenStreetCam
 
-        4.  Use 'yeg_src/cleanup_invalid_images.py' to clean up
+        4.  Use `yeg_src/cleanup_invalid_images.py` to clean up
 
 ## [Caffe](https://github.com/BVLC/caffe)
 
