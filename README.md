@@ -66,7 +66,7 @@ use `yeg_src/create_lmdb.py` to get the lmdb for the training images.
 The model requires us to subtract the image mean from each image, so we have to compute the mean. caffe/tools/compute_image_mean.cpp implements that.
 This file is at `yeg_src/compute_image_mean.cpp`
 
-Run `compute_image_mean path/to/created_lmdb data/ilsvrc12/imagenet_mean.binaryproto`
+Run `<caffe installation folder>/build/tools/compute_image_mean <lmdb folder> data/ilsvrc12/imagenet_mean.binaryproto`
 
 imagenet_mean.binaryproto is the mean image file we need.
 
@@ -78,3 +78,13 @@ make sure the paths are all correct in
 `models/trial_model_1/train.sh`,  
 `models/trial_model_1/prototxt/solver.prototxt`, and  
 `models/trial_model_1/prototxt/train_val_trial.prototxt`
+
+### Stop and Continue Training
+
+when you want to end the training process and save the current weights, you CAN'T simply ctrl+c to terminate it, becasue it won't save the weights.
+
+Instead run `kill -s SIGINT <caffe_pid>`
+
+This checks the ID of Caffe process (hint: read the log - PID is the number right before the filename) and manually sending a signal to Caffe itself
+
+use the saved weights to continue training with caffe with caffe's `--weights` flag
